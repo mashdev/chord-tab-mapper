@@ -1,0 +1,20 @@
+body {
+    background-color: #D8D8D8;
+}
+
+#textbox1 {
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid black;
+}
+
+#cell {
+    display: flex;
+    width: 30px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: none;
+    background-color: #e8e8e8;
+    text-align: center;
+}
