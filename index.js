@@ -20,4 +20,11 @@ function getLyrics() {
 
     console.log(arr);
     render.innerText = arr;
+
+    // let box = document.createElement("p")
+    // box.id = "textbox1"
+    // box.text = "div-text"
+    // document.getElementById("container").appendChild(box)
+
+
 }
