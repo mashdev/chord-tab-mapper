@@ -12,13 +12,28 @@ function getLyrics() {
     var newline = [];
 
     // create an array of arrays with an empty line
-    for(i=0; i<linecount.length; i++){
+    for(let i=0; i<linecount.length; i++){
         len = linecount[i].split(" ").length
-        arr.push(Array.apply(null, {length : len}))
+        // arr.push(Array.apply(i, {length : len}))
+        for(let j=0; j<len; j++){
+          arr.push(null)
+        }
         arr.push(linecount[i].split(" "))
      }
+     console.log(arr);
+     
+    let numOfRows = arr.length
 
-    console.log(arr);
+    let table = "<table>";
+      
+    for(let j=0; j<arr.length; j++){
+      table += "<tr><td>row"+ j;
+      
+      table += "</td><tr>"
+    }
+    table += "</table>"
+
+
     render.innerText = arr;
 
     // let box = document.createElement("p")
