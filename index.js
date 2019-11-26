@@ -10,36 +10,39 @@ function getLyrics() {
     var arr = [];
     var emptyLine = [];
     var newline = [];
+    var newObj = {}
 
-    // create an array of arrays with an empty line
-    for(let i=0; i<linecount.length; i++){
-        len = linecount[i].split(" ").length
-        // arr.push(Array.apply(i, {length : len}))
-        for(let j=0; j<len; j++){
-          arr.push(null)
-        }
-        arr.push(linecount[i].split(" "))
-     }
-     console.log(arr);
-     
-    let numOfRows = arr.length
+    var html = ''
 
-    let table = "<table>";
-      
-    for(let j=0; j<arr.length; j++){
-      table += "<tr><td>row"+ j;
-      
-      table += "</td><tr>"
-    }
-    table += "</table>"
+    for(let i=0; i < linecount.length; i++){ //for each line
+          len = linecount[i].trimEnd().split(" ");
+          arr.push(emptyLine = len);
+       }
+    
+    for(let i=0; i < arr.length; i++){
+      html += '<table class=lyricstbl><tr>'
 
+      for(let l=0; l < arr[i].length; l++){
+        html += '<td> <input type=text size='+ arr[i][l].length +' name="" id='+Math.ceil(Math.random() * 10000000)+' onclick="getID(this.id)"> </td>';
+      }
 
-    render.innerText = arr;
+      html += '</tr><tr>'
 
-    // let box = document.createElement("p")
-    // box.id = "textbox1"
-    // box.text = "div-text"
-    // document.getElementById("container").appendChild(box)
+      for(let l=0; l < arr[i].length; l++){
+        html += '<td>'+arr[i][l]+'</td>';
+      }
+      html += '</tr></table>'
+    };
+    
+    let numOfRows = arr.length   
+    
+    render.innerHTML = html;
 
+}
+
+function getID(id){
+  let align = ['left', 'center', 'right'];
+  let box = document.getElementById(id)
+  box.classList.toggle("leftAlign");
 
 }
